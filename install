@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+DOTFILES="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+echo "adding zsh config..."
+ln -sf $DOTFILES/zsh/zshrc $HOME/.zshrc
+
+echo "adding kitty config..."
+rm -rf $HOME/.config/kitty
+ln -s $DOTFILES/kitty $HOME/.config/kitty
+
+echo "adding tmux config..."
+ln -sf $DOTFILES/tmux/tmux.conf $HOME/.tmux.conf
+
+echo "adding nvim config..."
+rm -rf $HOME/.config/nvim
+ln -s $DOTFILES/nvim $HOME/.config/nvim
+
+
