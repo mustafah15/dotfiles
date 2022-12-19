@@ -17,7 +17,7 @@ vim.keymap.set('i', ',,', '<Esc>A,<Esc>')
 -- remove search highlight with space + k
 vim.keymap.set('n', '<leader>k', ':nohlsearch<CR>')
 
-ª-- Move text up and down
+-- Move text up and down
 vim.keymap.set('i', '<A-j>', '<Esc>:move .+1<CR>==gi')
 vim.keymap.set('i', '<A-k>', '<Esc>:move .-2<CR>==gi')
 vim.keymap.set('x', '<A-j>', ":move '>+1<CR>gv-gv")
