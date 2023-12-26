@@ -5,15 +5,21 @@ require('mason-lspconfig').setup({ automatic_installation = true })
 -- PHP
 require('lspconfig').intelephense.setup({})
 
--- Vue, JavaScript, TypeScript
-require('lspconfig').volar.setup({
-  -- Enable "Take Over Mode" where volar will provide all JS/TS LSP services
-  -- This drastically improves the responsiveness of diagnostic updates on change
-  filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
-})
+-- golang
+require('lspconfig').gopls.setup({})
 
--- Tailwind CSS
-require('lspconfig').tailwindcss.setup({})
+-- JavaScript, TypeScript
+require'lspconfig'.tsserver.setup{}
+
+require('lspconfig').eslint.setup({
+  filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "typescript.tsx"},
+  on_attach = function(client, bufnr)
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      buffer = bufnr,
+      command = "EslintFixAll",
+    })
+  end,
+})
 
 -- Keymaps
 vim.keymap.set('n', '<Leader>d', '<cmd>lua vim.diagnostic.open_float()<CR>')
