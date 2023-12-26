@@ -296,6 +296,16 @@ use({
   end,
 })
 
+use({
+  "Pocco81/auto-save.nvim",
+  config = function()
+    require("auto-save").setup {
+      -- your config goes here
+      -- or just leave it empty :)
+    }
+  end,
+})
+
 -- Automatically set up your configuration after cloning packer.nvim
 -- Put this at the end after all plugins
 if packer_bootstrap then
