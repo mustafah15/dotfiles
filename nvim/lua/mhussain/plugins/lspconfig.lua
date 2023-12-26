@@ -3,15 +3,16 @@ require('mason').setup()
 require('mason-lspconfig').setup({ automatic_installation = true })
 
 -- PHP
-require('lspconfig').intelephense.setup({})
+require('lspconfig').intelephense.setup({ capabilities = capabilities })
 
 -- golang
-require('lspconfig').gopls.setup({})
+require('lspconfig').gopls.setup({capabilities = capabilities})
 
 -- JavaScript, TypeScript
-require'lspconfig'.tsserver.setup{}
+require'lspconfig'.tsserver.setup({capabilities = capabilities})
 
 require('lspconfig').eslint.setup({
+  capabilities = capabilities,
   filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "typescript.tsx"},
   on_attach = function(client, bufnr)
     vim.api.nvim_create_autocmd("BufWritePre", {
