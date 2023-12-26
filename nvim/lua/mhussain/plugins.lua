@@ -228,6 +228,54 @@ use({
   end
 })
 
+use({
+  'nvim-treesitter/nvim-treesitter',
+  run = function()
+    require('nvim-treesitter.install').update({ with_sync = true })
+  end,
+  requires = {
+    'JoosepAlviste/nvim-ts-context-commentstring',
+    'nvim-treesitter/nvim-treesitter-textobjects',
+  },
+  config = function()
+    require('nvim-treesitter.configs').setup({
+      ensure_installed = 'all',
+      highlight = {
+        enable = true,
+        additional_vim_regex_highlighting = true,
+      },
+      context_commentstring = {
+        enable = true,
+      },
+      textobjects = {
+        select = {
+          enable = true,
+          lookahead = true,
+          -- using v to select or d to delete + keymap[item] to use it
+          keymaps = {
+            ['if'] = '@function.inner',
+            ['af'] = '@function.outer',
+            ['ia'] = '@parameter.inner',
+            ['aa'] = '@parameter.outer',
+          },
+        }
+      }
+    })
+  end,
+})
+
+use({
+  'neovim/nvim-lspconfig',
+  requires = {
+    'williamboman/mason.nvim',
+    'williamboman/mason-lspconfig.nvim',
+  },
+  config = function()
+    require('mhussain/plugins/lspconfig')
+  end,
+})
+
+
 -- Automatically set up your configuration after cloning packer.nvim
 -- Put this at the end after all plugins
 if packer_bootstrap then
