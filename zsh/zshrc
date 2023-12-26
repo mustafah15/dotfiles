@@ -10,7 +10,8 @@ source $ZSH/oh-my-zsh.sh
 
 alias zshconfig="mate ~/.zshrc"
 alias ohmyzsh="mate ~/.oh-my-zsh"
-alias github="cd /Users/mhussain/github"
+alias github="cd /Users/mhussain/Desktop/code/github/mustafah15"
+alias vimconf="nvim /Users/mhussain/Desktop/code/github/mustafah15/dotfiles"
 alias work="cd /Users/mhussain/Desktop/work"
 alias log-my-day="cd /Users/mhussain/github/mustafah15/the-good-day-project && npm run log-my-day log"
 
