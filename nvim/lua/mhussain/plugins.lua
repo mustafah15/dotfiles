@@ -275,6 +275,8 @@ use({
   end,
 })
 
+-- using vim go for go auto formatting 
+use({'fatih/vim-go',})
 
 -- Automatically set up your configuration after cloning packer.nvim
 -- Put this at the end after all plugins
