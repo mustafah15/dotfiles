@@ -212,6 +212,21 @@ use({
   requires = 'tpope/vim-rhubarb',
 })
 
+--- Floating terminal.
+use({
+  'voldikss/vim-floaterm',
+  config = function()
+    vim.g.floaterm_width = 0.8
+    vim.g.floaterm_wintype =  'split'
+    vim.g.floaterm_height = 0.5
+    vim.keymap.set('n', '<Leader>2', ':FloatermToggle<CR>')
+    vim.keymap.set('t', '<Leader>2', '<C-\\><C-n>:FloatermToggle<CR>')
+    vim.cmd([[
+      highlight link Floaterm CursorLine
+      highlight link FloatermBorder CursorLineBg
+    ]])
+  end
+})
 
 -- Automatically set up your configuration after cloning packer.nvim
 -- Put this at the end after all plugins
