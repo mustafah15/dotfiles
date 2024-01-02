@@ -27,11 +27,11 @@ local use = require('packer').use
 -- Packer can manage itself.
 use('wbthomason/packer.nvim')
 
--- One Dark Theme
+-- catppuccin Theme
 use({
-  'jessarcher/onedark.nvim',
+  'catppuccin/nvim',
   config = function()
-    vim.cmd('colorscheme onedark')
+    vim.cmd('colorscheme catppuccin')
     vim.api.nvim_set_hl(0, 'FloatBorder', {
       fg = vim.api.nvim_get_hl_by_name('NormalFloat', true).background,
       bg = vim.api.nvim_get_hl_by_name('NormalFloat', true).background,
@@ -49,8 +49,7 @@ use({
     })
 
     vim.api.nvim_set_hl(0, 'IndentBlanklineChar', { fg = '#2f3122' })
-
-    -- vim.api.nvim_set_hl(0, 'NvimTreeIndentMarker', { fg = '#30323E' })
+    vim.api.nvim_set_hl(0, 'NvimTreeIndentMarker', { fg = '#30323E' })
   end,
 })
 
@@ -179,7 +178,6 @@ use({
 use({
   'akinsho/bufferline.nvim',
   requires = 'kyazdani42/nvim-web-devicons',
-  after = 'onedark.nvim',
   config = function()
     require('mhussain/plugins/bufferline')
   end,
